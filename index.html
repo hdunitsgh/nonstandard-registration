@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <title>Non-Standard Item Registration</title>
+  <style>
+    /* Minimalist CSS for a clean form */
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+      background-color: #f8f9fa;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .header img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 50%;
+    }
+    h1 {
+      color: #007bff;
+      font-size: 1.8em;
+      margin-bottom: 5px;
+    }
+    h2 {
+      color: #6c757d;
+      font-size: 1.1em;
+      font-weight: normal;
+      margin-top: 0;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="number"], select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #28a745; 
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 20px;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      border: 1px solid #28a745;
+      border-radius: 5px;
+      background-color: #e6ffed;
+      text-align: center;
+      display: none;
+    }
+    #result-header {
+      font-size: 1.2em;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+    #serial-display {
+      font-weight: bold;
+      font-size: 1.4em;
+      color: #007bff;
+      margin-bottom: 15px;
+      word-break: break-all;
+    }
+    .copy-btn {
+      background-color: #007bff;
+      margin-top: 10px;
+      width: auto;
+      padding: 8px 15px;
+      margin: 5px;
+    }
+    .copy-btn:hover {
+      background-color: #0056b3;
+    }
+    .qr-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .error {
+      color: red;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+    .footer {
+      margin-top: 40px;
+      padding-top: 15px;
+      border-top: 1px solid #ced4da;
+      font-size: 0.8em;
+      color: #6c757d;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <img src="https://lh3.googleusercontent.com/d/1tCDAMimy_b0x9kRmWNyYMn4voR9Ynr0J" alt="Logo">
+    <h1>Non-Standard Item Registration</h1>
+    <h2>Haemodialysis Unit, Sarawak General Hospital</h2>
+  </div>
+
+  <form id="registrationForm">
+    
+    <label for="regYear">Registration Year</label>
+    <select id="regYear" name="regYear" required>
+      <option value="2026">2026</option>
+      <option value="2027">2027</option>
+      <option value="2028">2028</option>
+      <option value="2029">2029</option>
+      <option value="2030">2030</option>
+    </select>
+
+    <label for="brand">Brand</label>
+    <input type="text" id="brand" name="brand" required>
+
+    <label for="lotNo">Lot No</label>
+    <input type="text" id="lotNo" name="lotNo" required>
+
+    <label for="item">Item</label>
+    <select id="item" name="item" required>
+      <option value="" disabled selected>Select an Item</option>
+      <option value="DLC12F15_DLC 12F X 15cm">DLC 12F X 15cm</option>
+      <option value="DLC12F20_DLC 12F X 20cm">DLC 12F X 20cm</option>
+      <option value="DLS12F20_DLS 12F X 20cm">DLS 12F X 20cm</option>
+      <option value="DLS12F24_DLS 12F X 24cm">DLS 12F X 24cm</option>
+      <option value="DLS14F20_DLS 14F X 20cm">DLS 14F X 20cm</option>
+      <option value="DLS14F24_DLS 14F X 24cm">DLS 14F X 24cm</option>
+      <option value="TLC12F15_TLC 12F X 15cm">TLC 12F X 15cm</option>
+      <option value="TLS12F20_TLS 12F X 20cm">TLS 12F X 20cm</option>
+      <option value="TLS12F24_TLS 12F X 24cm">TLS 12F X 24cm</option>
+      <option value="DLC10F12_DLC 10F X 12cm">DLC 10F X 12cm</option>
+      <option value="DLS10F15_DLS 10F X 15cm">DLS 10F X 15cm</option>
+      <option value="DLCF14F42_DLCF 14.5F X 42cm">DL (Cuffed) 14.5F X 42cm</option>
+      <option value="DLCF14F35_DLCF 14.5F X 35cm">DL (Cuffed) 14.5F X 35cm</option>
+      <option value="DLCF14F23_DLCF 14.5F X 23cm">DL (Cuffed) 14.5F X 23cm</option>
+      <option value="DLCF14F19_DLCF 14.5F X 19cm">DL (Cuffed) 14.5F X 19cm</option>
+      <option value="PMS5L_Prismasol 5L/bag">Multibic Solution 5L/bag</option>
+      <option value="PFXM100_Prismaflex M100">Prismaflex M100</option>
+      <option value="OMNI_OMNIset">OMNIset</option>
+      <option value="OXIRIS_Oxiris">Oxiris Set</option>
+    </select>
+    
+    <label for="price">Price (MYR, per item)</label>
+    <input type="number" id="price" name="price" step="0.01" min="0" value="0.00" required>
+    
+    <button type="submit" id="registerBtn">Register & Generate Serial No</button>
+    <p id="loadingMsg" style="text-align: center; color: #007bff; display: none;">Processing...</p>
+    <p id="errorMsg" class="error" style="display: none;"></p>
+  </form>
+
+  <div id="result">
+    <div id="result-header">Registration Successful!</div>
+    <p>Serial Number Generated:</p>
+    <div id="serial-display"></div>
+    
+    <div class="qr-container">
+        <img id="qr-code-img" src="" alt="QR Code" style="margin-top: 15px; border: 1px solid #ccc;">
+        <div>
+            <button class="copy-btn" onclick="copySerialNo()">Copy Serial No</button>
+        </div>
+        <p style="font-size: 0.9em; color: #6c757d; margin-top: 10px;">
+          To print the QR code, right-click the image and select "Save Image As..." or "Print Picture."
+        </p>
+    </div>
+    <button type="button" onclick="resetForm()">Register Another Product</button>
+  </div>
+</div>
+
+<div class="footer">
+    &copy; Designed and developed by PPP Zulfadlie bin Janie<br>
+    for Haemodialysis Unit, Sarawak General Hospital
+</div>
+
+<script>
+  // Your active Google Apps Script Web App Deployment URL
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyRZPJxJQT84Z_lWA_9k3dj3gbHDYReRkmQD-uGgadIBTpavO02ToXPhO1jiSAwqdQ/exec";
+
+  document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const form = e.target;
+    const formData = {
+      regYear: form.regYear.value,
+      brand: form.brand.value.trim(),
+      lotNo: form.lotNo.value.trim(),
+      item: form.item.value,
+      price: form.price.value
+    };
+
+    document.getElementById('loadingMsg').style.display = 'block';
+    document.getElementById('registerBtn').disabled = true;
+    document.getElementById('errorMsg').style.display = 'none';
+
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      },
+      body: JSON.stringify({
+        action: 'registerProduct',
+        payload: formData
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(result => showResult(result))
+    .catch(error => showError(error));
+  });
+
+  function showResult(result) {
+    document.getElementById('loadingMsg').style.display = 'none';
+    document.getElementById('registerBtn').disabled = false;
+
+    if (result.success) {
+      document.getElementById('registrationForm').style.display = 'none';
+      const serialDisplay = document.getElementById('serial-display');
+      const qrImg = document.getElementById('qr-code-img');
+      
+      serialDisplay.textContent = result.serialNo;
+      qrImg.src = result.qrCodeUrl;
+      document.getElementById('result').style.display = 'block';
+    } else {
+      showError(result.error || 'Unknown error during registration.');
+    }
+  }
+
+  function showError(error) {
+    document.getElementById('loadingMsg').style.display = 'none';
+    document.getElementById('registerBtn').disabled = false;
+    document.getElementById('errorMsg').textContent = 'Error: ' + error;
+    document.getElementById('errorMsg').style.display = 'block';
+  }
+
+  function copySerialNo() {
+    const serialNo = document.getElementById('serial-display').textContent;
+    navigator.clipboard.writeText(serialNo).then(() => {
+      alert('Serial Number copied to clipboard: ' + serialNo);
+    }).catch(err => {
+      alert('Failed to copy. Please manually select and copy the Serial Number.');
+    });
+  }
+
+  function resetForm() {
+    document.getElementById('registrationForm').reset();
+    document.getElementById('registrationForm').style.display = 'block';
+    document.getElementById('result').style.display = 'none';
+  }
+</script>
+</body>
+</html>
